@@ -1,0 +1,6 @@
+framework module LEOTab {
+  umbrella header "LEOTab-umbrella.h"
+
+  export *
+  module * { export * }
+}

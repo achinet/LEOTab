@@ -1,0 +1,25 @@
+{
+  "name": "LEOTab",
+  "version": "0.1.0",
+  "summary": "A cool navigation tab",
+  "description": "hello man this is awesome navigation tab with scrolling menu",
+  "homepage": "https://github.com/achinet/LEOTab",
+  "license": "MIT",
+  "authors": {
+    "Leonardo Ruiz": "leoorotava@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/achinet/LEOTab.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "LEOTab": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}

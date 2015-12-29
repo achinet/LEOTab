@@ -1,0 +1,14 @@
+PODS:
+  - LEOTab (0.1.0)
+
+DEPENDENCIES:
+  - LEOTab (from `../`)
+
+EXTERNAL SOURCES:
+  LEOTab:
+    :path: ../
+
+SPEC CHECKSUMS:
+  LEOTab: 3b1fe1926bc7c4d8a2e00d450aad5d4bb8956b23
+
+COCOAPODS: 0.39.0

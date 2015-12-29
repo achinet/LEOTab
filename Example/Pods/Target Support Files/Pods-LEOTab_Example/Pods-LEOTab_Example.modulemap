@@ -1,0 +1,6 @@
+framework module Pods_LEOTab_Example {
+  umbrella header "Pods-LEOTab_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
