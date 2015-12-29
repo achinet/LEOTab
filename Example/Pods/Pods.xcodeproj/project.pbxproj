@@ -14,7 +14,11 @@
 		4C381FC0D1FDEAF0D10ED014304402FC /* Pods-LEOTab_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 84124C19240D6436C68324B2852456CA /* Pods-LEOTab_Example-dummy.m */; };
 		6BAF21A4DDF4BE15D504371390A550A5 /* LEOTab-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 224FFBB7ECFE17E50AB9600CDAA31687 /* LEOTab-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C2542FB2CBFCDBD7C2064DAB52FE86C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		988FE5191C3335C80051C3FE /* MySwiftPodManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988FE5181C3335C80051C3FE /* MySwiftPodManager.swift */; };
+		988FE5591C333A530051C3FE /* LEOCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988FE5541C333A530051C3FE /* LEOCollectionViewController.swift */; };
+		988FE55A1C333A530051C3FE /* LEOCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988FE5551C333A530051C3FE /* LEOCollectionViewFlowLayout.swift */; };
+		988FE55B1C333A530051C3FE /* LEONavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988FE5561C333A530051C3FE /* LEONavigationBar.swift */; };
+		988FE55C1C333A530051C3FE /* LEONavigationControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988FE5571C333A530051C3FE /* LEONavigationControllerViewController.swift */; };
+		988FE55D1C333A530051C3FE /* LEOTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988FE5581C333A530051C3FE /* LEOTableTableViewController.swift */; };
 		A941DE78E0A8F7D89129E3830E7B8672 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
 		F27CE7F43AED68A63C753152B4633C1D /* Pods-LEOTab_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B362B768CD2153C02D7987812E19E98 /* Pods-LEOTab_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F642974EE44D8295EB56B96C71B0B97F /* Pods-LEOTab_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8162BCA26DB9D9059F9BD5003F9E01 /* Pods-LEOTab_Tests-dummy.m */; };
@@ -63,7 +67,11 @@
 		8617F4E8703F8C084F82D05773CE9FF6 /* Pods-LEOTab_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LEOTab_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		8B362B768CD2153C02D7987812E19E98 /* Pods-LEOTab_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LEOTab_Tests-umbrella.h"; sourceTree = "<group>"; };
 		8F5173B06A58D84585896017D5DC33E7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		988FE5181C3335C80051C3FE /* MySwiftPodManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySwiftPodManager.swift; sourceTree = "<group>"; };
+		988FE5541C333A530051C3FE /* LEOCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOCollectionViewController.swift; sourceTree = "<group>"; };
+		988FE5551C333A530051C3FE /* LEOCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		988FE5561C333A530051C3FE /* LEONavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEONavigationBar.swift; sourceTree = "<group>"; };
+		988FE5571C333A530051C3FE /* LEONavigationControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEONavigationControllerViewController.swift; sourceTree = "<group>"; };
+		988FE5581C333A530051C3FE /* LEOTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOTableTableViewController.swift; sourceTree = "<group>"; };
 		99D18DF5DD413383EA2C6F9EED7E51C1 /* LEOTab-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LEOTab-dummy.m"; sourceTree = "<group>"; };
 		A6C88852CCC1BBD58A6D8843740F81F3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA9BD4B75C3AB42F518B20AA185344C6 /* Pods-LEOTab_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LEOTab_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -241,7 +249,11 @@
 		F750BCB31747786B7FEA642463047F68 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				988FE5181C3335C80051C3FE /* MySwiftPodManager.swift */,
+				988FE5541C333A530051C3FE /* LEOCollectionViewController.swift */,
+				988FE5551C333A530051C3FE /* LEOCollectionViewFlowLayout.swift */,
+				988FE5561C333A530051C3FE /* LEONavigationBar.swift */,
+				988FE5571C333A530051C3FE /* LEONavigationControllerViewController.swift */,
+				988FE5581C333A530051C3FE /* LEOTableTableViewController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -409,7 +421,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4935EE08A8AC32FDDE0D66923D7A5BA4 /* LEOTab-dummy.m in Sources */,
-				988FE5191C3335C80051C3FE /* MySwiftPodManager.swift in Sources */,
+				988FE5591C333A530051C3FE /* LEOCollectionViewController.swift in Sources */,
+				988FE55C1C333A530051C3FE /* LEONavigationControllerViewController.swift in Sources */,
+				988FE55D1C333A530051C3FE /* LEOTableTableViewController.swift in Sources */,
+				988FE55B1C333A530051C3FE /* LEONavigationBar.swift in Sources */,
+				988FE55A1C333A530051C3FE /* LEOCollectionViewFlowLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
