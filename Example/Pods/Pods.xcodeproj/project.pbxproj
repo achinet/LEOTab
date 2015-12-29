@@ -9,17 +9,13 @@
 /* Begin PBXBuildFile section */
 		0C26DEE21590A34BA7D397D3ABA8F471 /* LEOTab.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FB9872ADB7092A4AAE2D60949B70B27B /* LEOTab.bundle */; };
 		14494CAAC8B2371DF39CCE7E77BBBFE4 /* Pods-LEOTab_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E3926A59C52AB13DF11CA80342F2F404 /* Pods-LEOTab_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		19416B67321B87340A0A8554D4712130 /* LEOCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2D3C1042F839E3470AFA0EF25E8481 /* LEOCollectionViewController.swift */; };
 		20D621F70323104C50D8E4FFD0131770 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		229AE8AFFEE3384CADE9DEE7E88D4909 /* LEONavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A8486574C0956FF04D0F6ADAA36CFB /* LEONavigationBar.swift */; };
 		4935EE08A8AC32FDDE0D66923D7A5BA4 /* LEOTab-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D18DF5DD413383EA2C6F9EED7E51C1 /* LEOTab-dummy.m */; };
 		4C381FC0D1FDEAF0D10ED014304402FC /* Pods-LEOTab_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 84124C19240D6436C68324B2852456CA /* Pods-LEOTab_Example-dummy.m */; };
 		6BAF21A4DDF4BE15D504371390A550A5 /* LEOTab-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 224FFBB7ECFE17E50AB9600CDAA31687 /* LEOTab-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C2542FB2CBFCDBD7C2064DAB52FE86C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		80D678A1E6960485B2C2CEB6F872AD7E /* LEONavigationControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11602B3C5E9E2C5B4E84DB2F1BD12B8 /* LEONavigationControllerViewController.swift */; };
+		988FE5191C3335C80051C3FE /* MySwiftPodManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988FE5181C3335C80051C3FE /* MySwiftPodManager.swift */; };
 		A941DE78E0A8F7D89129E3830E7B8672 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		D3BD11E8C1220B9ED19DB37FF03567C0 /* LEOTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B7177F86E22CC5E8D4420CB7DE7403 /* LEOTableTableViewController.swift */; };
-		D87D61DA84137DFE59D2086D5BBE20BA /* LEOCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A87ADF4AA845297D316AA75B7B139 /* LEOCollectionViewFlowLayout.swift */; };
 		F27CE7F43AED68A63C753152B4633C1D /* Pods-LEOTab_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B362B768CD2153C02D7987812E19E98 /* Pods-LEOTab_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F642974EE44D8295EB56B96C71B0B97F /* Pods-LEOTab_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8162BCA26DB9D9059F9BD5003F9E01 /* Pods-LEOTab_Tests-dummy.m */; };
 /* End PBXBuildFile section */
@@ -49,7 +45,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		056A87ADF4AA845297D316AA75B7B139 /* LEOCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LEOCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		0960840A7A56FE822E5052B0A0B70897 /* Pods-LEOTab_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LEOTab_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		1416EDEA93138CA37222518FA2A53371 /* Pods-LEOTab_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LEOTab_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		14B36C4C5008721E6457ED23CC1803C9 /* LEOTab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LEOTab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,20 +55,18 @@
 		3107D5EE7F0B4FB34F999EDAC44F4072 /* LEOTab.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LEOTab.xcconfig; sourceTree = "<group>"; };
 		357581DD5FD9B534575090AE07DD1E7A /* Pods_LEOTab_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LEOTab_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		41B7177F86E22CC5E8D4420CB7DE7403 /* LEOTableTableViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LEOTableTableViewController.swift; sourceTree = "<group>"; };
 		66F8C8EE5DE5C10E3E8FD017415033E0 /* Pods-LEOTab_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LEOTab_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		69124D4DB70C29DD3080926EA0141EB4 /* Pods-LEOTab_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LEOTab_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		69A8486574C0956FF04D0F6ADAA36CFB /* LEONavigationBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LEONavigationBar.swift; sourceTree = "<group>"; };
 		7429B8A7F539C25F5B20D5EBE0971DE9 /* Pods-LEOTab_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LEOTab_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		7D7E5B92B7DF5FEC116AB51D074F4B64 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84124C19240D6436C68324B2852456CA /* Pods-LEOTab_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LEOTab_Example-dummy.m"; sourceTree = "<group>"; };
 		8617F4E8703F8C084F82D05773CE9FF6 /* Pods-LEOTab_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LEOTab_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		8B362B768CD2153C02D7987812E19E98 /* Pods-LEOTab_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LEOTab_Tests-umbrella.h"; sourceTree = "<group>"; };
 		8F5173B06A58D84585896017D5DC33E7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		988FE5181C3335C80051C3FE /* MySwiftPodManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySwiftPodManager.swift; sourceTree = "<group>"; };
 		99D18DF5DD413383EA2C6F9EED7E51C1 /* LEOTab-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LEOTab-dummy.m"; sourceTree = "<group>"; };
 		A6C88852CCC1BBD58A6D8843740F81F3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA9BD4B75C3AB42F518B20AA185344C6 /* Pods-LEOTab_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LEOTab_Example.release.xcconfig"; sourceTree = "<group>"; };
-		B11602B3C5E9E2C5B4E84DB2F1BD12B8 /* LEONavigationControllerViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LEONavigationControllerViewController.swift; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C7AF818511FCE2BCB170340E3B7076E0 /* LEOTab-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LEOTab-prefix.pch"; sourceTree = "<group>"; };
 		D3D7EF7A421753984251068FE901269B /* LEOTab.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = LEOTab.modulemap; sourceTree = "<group>"; };
@@ -81,7 +74,6 @@
 		D6FCE873C245BE451B8A88B443607A71 /* Pods-LEOTab_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LEOTab_Example-frameworks.sh"; sourceTree = "<group>"; };
 		E0537203EB24A97B0FCAC139DF0F13A2 /* Pods-LEOTab_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-LEOTab_Example.modulemap"; sourceTree = "<group>"; };
 		E3926A59C52AB13DF11CA80342F2F404 /* Pods-LEOTab_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LEOTab_Example-umbrella.h"; sourceTree = "<group>"; };
-		EB2D3C1042F839E3470AFA0EF25E8481 /* LEOCollectionViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LEOCollectionViewController.swift; sourceTree = "<group>"; };
 		F2CEDDFD5F683A41CE9F898C2EF06381 /* Pods_LEOTab_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LEOTab_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6D36D6B70352535F875A7AB5914D696 /* Pods-LEOTab_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LEOTab_Tests-resources.sh"; sourceTree = "<group>"; };
 		FA8162BCA26DB9D9059F9BD5003F9E01 /* Pods-LEOTab_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LEOTab_Tests-dummy.m"; sourceTree = "<group>"; };
@@ -249,11 +241,7 @@
 		F750BCB31747786B7FEA642463047F68 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				EB2D3C1042F839E3470AFA0EF25E8481 /* LEOCollectionViewController.swift */,
-				056A87ADF4AA845297D316AA75B7B139 /* LEOCollectionViewFlowLayout.swift */,
-				69A8486574C0956FF04D0F6ADAA36CFB /* LEONavigationBar.swift */,
-				B11602B3C5E9E2C5B4E84DB2F1BD12B8 /* LEONavigationControllerViewController.swift */,
-				41B7177F86E22CC5E8D4420CB7DE7403 /* LEOTableTableViewController.swift */,
+				988FE5181C3335C80051C3FE /* MySwiftPodManager.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -366,7 +354,7 @@
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
@@ -420,12 +408,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19416B67321B87340A0A8554D4712130 /* LEOCollectionViewController.swift in Sources */,
-				D87D61DA84137DFE59D2086D5BBE20BA /* LEOCollectionViewFlowLayout.swift in Sources */,
-				229AE8AFFEE3384CADE9DEE7E88D4909 /* LEONavigationBar.swift in Sources */,
-				80D678A1E6960485B2C2CEB6F872AD7E /* LEONavigationControllerViewController.swift in Sources */,
 				4935EE08A8AC32FDDE0D66923D7A5BA4 /* LEOTab-dummy.m in Sources */,
-				D3BD11E8C1220B9ED19DB37FF03567C0 /* LEOTableTableViewController.swift in Sources */,
+				988FE5191C3335C80051C3FE /* MySwiftPodManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +490,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3107D5EE7F0B4FB34F999EDAC44F4072 /* LEOTab.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -678,6 +663,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3107D5EE7F0B4FB34F999EDAC44F4072 /* LEOTab.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
