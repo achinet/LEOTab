@@ -61,7 +61,7 @@ public class LEOTableViewController: UITableViewController {
 }
 
 extension LEOTableViewController { //As UICollectionViewCell
-    func willDisplayCell(notif: NSNotification) {
+    public func willDisplayCell(notif: NSNotification) {
         guard let _ = notif.object as? LEOTableViewController
             else { return }
         
