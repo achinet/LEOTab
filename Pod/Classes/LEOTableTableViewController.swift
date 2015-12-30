@@ -28,6 +28,13 @@ public class LEOTableViewController: UITableViewController {
         nc.addObserver(self, selector: "willDisplayCell:", name: "LEO_willDisplayCell", object: nil)
     }
     
+    public func reloadData() {
+        let tmpScrollDelegateEnabled = self.scrollNotificationEnabled
+        self.scrollNotificationEnabled = false
+        self.tableView.reloadData()
+        self.scrollNotificationEnabled = tmpScrollDelegateEnabled
+    }
+    
     //MARK: ScrollViewDelegate
     override public func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         if scrollNotificationEnabled {
