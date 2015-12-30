@@ -25,6 +25,7 @@ public class LEOTableViewController: UITableViewController {
     
     func SetupNavigationBar() {
         self.navigationItem.title = nil
+        nc.addObserver(self, selector: "willDisplayCell:", name: "LEO_willDisplayCell", object: nil)
     }
     
     //MARK: ScrollViewDelegate
@@ -60,7 +61,10 @@ public class LEOTableViewController: UITableViewController {
 }
 
 extension LEOTableViewController { //As UICollectionViewCell
-    func willDisplayCell() {
+    func willDisplayCell(notif: NSNotification) {
+        guard let _ = notif.object as? LEOTableViewController
+            else { return }
+        
         if let letLeoNavigationBar = self.leoNavigationBar {
             var contentInset = self.tableView.contentInset
             let beforeContentInset = contentInset.top

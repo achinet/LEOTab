@@ -79,8 +79,9 @@ extension LEOCollectionViewController : UICollectionViewDataSource {
         return cell;
     }
   public func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        if let viewController = controllers![indexPath.row] as? LEOTableViewController {
-            viewController.willDisplayCell()
+        if let viewController = controllers?[indexPath.row] {
+            let nc = NSNotificationCenter.defaultCenter()
+            nc.postNotificationName("LEO_willDisplayCell", object: viewController)
         }
     }
     
