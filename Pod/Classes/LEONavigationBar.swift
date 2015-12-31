@@ -388,15 +388,15 @@ public class LEONavigationBar: UINavigationBar {
         bottomLayer.alpha = ((self.frame.size.height - self.getBackLayerMediumHeight())/(self.getBackLayerMaxHeight() - self.getBackLayerMediumHeight())) * (1 - bottomLayerAlphaMin) + bottomLayerAlphaMin
     }
     
-    func getBackLayerMaxHeight() -> CGFloat {
+    public func getBackLayerMaxHeight() -> CGFloat {
         return getBackLayerMinHeight() + bottomLayerHeight
     }
     
-    func getBackLayerMinHeight() -> CGFloat {
+    public func getBackLayerMinHeight() -> CGFloat {
         return topLayerHeight + shadowHeight;
     }
     
-    func getBackLayerMediumHeight() -> CGFloat {
+    public func getBackLayerMediumHeight() -> CGFloat {
         return getBackLayerMinHeight() + bottomLayerHeight/2
     }
 }
