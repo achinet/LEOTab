@@ -8,22 +8,22 @@ public class LEOTableViewController: UITableViewController {
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        SetupNavigationBar()
+        SetupViewController()
     }
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
-        SetupNavigationBar()
+        SetupViewController()
     }
     
     override init(style: UITableViewStyle) {
         super.init(style: style)
         
-        SetupNavigationBar()
+        SetupViewController()
     }
     
-    func SetupNavigationBar() {
+    func SetupViewController() {
         self.navigationItem.title = nil
         nc.addObserver(self, selector: "willDisplayCell:", name: "LEO_willDisplayCell", object: nil)
     }
