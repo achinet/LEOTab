@@ -2,7 +2,7 @@ import UIKit
 
 public class LEOTableViewController: UITableViewController {
     let nc = NSNotificationCenter.defaultCenter()
-    var leoNavigationBar : LEONavigationBar?
+    public var leoNavigationBar : LEONavigationBar?
     var scrollNotificationEnabled = true
     
     required public init?(coder aDecoder: NSCoder) {
