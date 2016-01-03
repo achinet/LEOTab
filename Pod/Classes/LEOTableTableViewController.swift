@@ -27,6 +27,37 @@ public class LEOTableViewController: UITableViewController {
         self.navigationItem.title = nil
         nc.addObserver(self, selector: "willDisplayCell:", name: "LEO_willDisplayCell", object: nil)
     }
+}
+
+extension LEOTableViewController : LEOScrollViewProtocol {
+    public func notificationEnabled(enabled: Bool) {
+        self.scrollNotificationEnabled = enabled
+    }
+    
+    public func getScrollView() -> UIScrollView {
+        return self.tableView
+    }
+    
+    public func willDisplayCell(notif: NSNotification) {
+        guard let _ = notif.object as? LEOTableViewController
+            else { return }
+        
+        if let letLeoNavigationBar = self.leoNavigationBar {
+            var contentInset = self.tableView.contentInset
+            let beforeContentInset = contentInset.top
+            contentInset.top = letLeoNavigationBar.frame.size.height + 20
+            self.tableView.contentInset = contentInset
+            
+            if (self.tableView.contentSize.height < self.tableView.frame.size.height) { return }
+            
+            if !(beforeContentInset > (letLeoNavigationBar.getBackLayerMinHeight() + 20) && -self.tableView.contentOffset.y >= (letLeoNavigationBar.getBackLayerMinHeight() + 20)) {
+                let afterOffsetTop = beforeContentInset - contentInset.top
+                var contentOffset = self.tableView.contentOffset
+                contentOffset.y = self.tableView.contentOffset.y + afterOffsetTop
+                self.tableView.contentOffset = contentOffset
+            }
+        }
+    }
     
     public func reloadData() {
         let tmpScrollDelegateEnabled = self.scrollNotificationEnabled
@@ -63,29 +94,6 @@ public class LEOTableViewController: UITableViewController {
     override public func scrollViewDidScroll(scrollView: UIScrollView) {
         if scrollNotificationEnabled {
             nc.postNotificationName("LEO_scrollViewDidScroll", object: self)
-        }
-    }
-}
-
-extension LEOTableViewController { //As UICollectionViewCell
-    public func willDisplayCell(notif: NSNotification) {
-        guard let _ = notif.object as? LEOTableViewController
-            else { return }
-        
-        if let letLeoNavigationBar = self.leoNavigationBar {
-            var contentInset = self.tableView.contentInset
-            let beforeContentInset = contentInset.top
-            contentInset.top = letLeoNavigationBar.frame.size.height + 20
-            self.tableView.contentInset = contentInset
-            
-            if (self.tableView.contentSize.height < self.tableView.frame.size.height) { return }
-            
-            if !(beforeContentInset > (letLeoNavigationBar.getBackLayerMinHeight() + 20) && -self.tableView.contentOffset.y >= (letLeoNavigationBar.getBackLayerMinHeight() + 20)) {
-                let afterOffsetTop = beforeContentInset - contentInset.top
-                var contentOffset = self.tableView.contentOffset
-                contentOffset.y = self.tableView.contentOffset.y + afterOffsetTop
-                self.tableView.contentOffset = contentOffset
-            }
         }
     }
 }

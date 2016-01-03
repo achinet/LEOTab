@@ -30,7 +30,38 @@ public class LEOContentCollectionViewController: UICollectionViewController {
         self.collectionView!.reloadData()
         self.scrollNotificationEnabled = tmpScrollDelegateEnabled
     }
+}
 
+extension LEOContentCollectionViewController : LEOScrollViewProtocol {
+    public func notificationEnabled(enabled: Bool) {
+        self.scrollNotificationEnabled = enabled
+    }
+    
+    public func getScrollView() -> UIScrollView {
+        return self.collectionView!
+    }
+
+    public func willDisplayCell(notif: NSNotification) {
+        guard let _ = notif.object as? LEOContentCollectionViewController
+            else { return }
+        
+        if let letLeoNavigationBar = self.leoNavigationBar {
+            var contentInset = self.collectionView!.contentInset
+            let beforeContentInset = contentInset.top
+            contentInset.top = letLeoNavigationBar.frame.size.height + 20
+            self.collectionView!.contentInset = contentInset
+            
+            if (self.collectionView!.contentSize.height < self.collectionView!.frame.size.height) { return }
+            
+            if !(beforeContentInset > (letLeoNavigationBar.getBackLayerMinHeight() + 20) && -self.collectionView!.contentOffset.y >= (letLeoNavigationBar.getBackLayerMinHeight() + 20)) {
+                let afterOffsetTop = beforeContentInset - contentInset.top
+                var contentOffset = self.collectionView!.contentOffset
+                contentOffset.y = self.collectionView!.contentOffset.y + afterOffsetTop
+                self.collectionView!.contentOffset = contentOffset
+            }
+        }
+    }
+    
     //MARK: ScrollViewDelegate
     override public func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         if scrollNotificationEnabled {
@@ -59,29 +90,6 @@ public class LEOContentCollectionViewController: UICollectionViewController {
     override public func scrollViewDidScroll(scrollView: UIScrollView) {
         if scrollNotificationEnabled {
             nc.postNotificationName("LEO_scrollViewDidScroll", object: self)
-        }
-    }
-}
-
-extension LEOContentCollectionViewController { //As UICollectionViewCell
-    public func willDisplayCell(notif: NSNotification) {
-        guard let _ = notif.object as? LEOContentCollectionViewController
-            else { return }
-        
-        if let letLeoNavigationBar = self.leoNavigationBar {
-            var contentInset = self.collectionView!.contentInset
-            let beforeContentInset = contentInset.top
-            contentInset.top = letLeoNavigationBar.frame.size.height + 20
-            self.collectionView!.contentInset = contentInset
-            
-            if (self.collectionView!.contentSize.height < self.collectionView!.frame.size.height) { return }
-            
-            if !(beforeContentInset > (letLeoNavigationBar.getBackLayerMinHeight() + 20) && -self.collectionView!.contentOffset.y >= (letLeoNavigationBar.getBackLayerMinHeight() + 20)) {
-                let afterOffsetTop = beforeContentInset - contentInset.top
-                var contentOffset = self.collectionView!.contentOffset
-                contentOffset.y = self.collectionView!.contentOffset.y + afterOffsetTop
-                self.collectionView!.contentOffset = contentOffset
-            }
         }
     }
 }

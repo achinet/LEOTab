@@ -1,5 +1,12 @@
 import UIKit
 
+public protocol LEOScrollViewProtocol : UIScrollViewDelegate {
+    func getScrollView() -> UIScrollView
+    func reloadData()
+    func willDisplayCell(notif: NSNotification)
+    func notificationEnabled(enabled: Bool)
+}
+
 public class LEONavigationBar: UINavigationBar {
     let nc = NSNotificationCenter.defaultCenter()
     
@@ -241,12 +248,12 @@ public class LEONavigationBar: UINavigationBar {
     //MARK: Scroll events
     func scrollViewWillBeginDragging(notif: NSNotification) {
         if _isEndDragginAnimation { return }
-        guard let leoTableViewController = notif.object as? LEOTableViewController
+        guard let leoViewController = notif.object as? LEOScrollViewProtocol
             else { return }
         
         if self.habilitaDespliegeRepliege! && !self._isDraggin {
             self._isDraggin = true
-            _startTouchOffsetY = leoTableViewController.tableView.contentOffset.y
+            _startTouchOffsetY = leoViewController.getScrollView().contentOffset.y
             _LasetOffsetY = _startTouchOffsetY
             gapAttached = false
         }
@@ -254,18 +261,18 @@ public class LEONavigationBar: UINavigationBar {
     
     func scrollViewDidEndDragging(notif: NSNotification) {
         if _isEndDragginAnimation { return }
-        guard let leoTableViewController = notif.object as? LEOTableViewController
+        guard let leoViewController = notif.object as? LEOScrollViewProtocol
             else { return }
         
         self._isDraggin = false
         if self.habilitaDespliegeRepliege! && !self._isDraggin && !self._isDecelerating {
-            self.mannageEndDragginScrollingTopView(leoTableViewController)
+            self.mannageEndDragginScrollingTopView(leoViewController)
         }
     }
     
     func scrollViewWillBeginDecelerating(notif: NSNotification) {
         if _isEndDragginAnimation { return }
-        guard let _ = notif.object as? LEOTableViewController
+        guard let _ = notif.object as? LEOScrollViewProtocol
             else { return }
         
         self._isDecelerating = true
@@ -273,32 +280,32 @@ public class LEONavigationBar: UINavigationBar {
     
     func scrollViewDidEndDecelerating(notif: NSNotification) {
         if _isEndDragginAnimation { return }
-        guard let leoTableViewController = notif.object as? LEOTableViewController
+        guard let leoViewController = notif.object as? LEOScrollViewProtocol
             else { return }
         
         self._isDecelerating = false
-        if self.habilitaDespliegeRepliege! && !leoTableViewController.tableView.dragging && !leoTableViewController.tableView.tracking {
-            self.mannageEndDragginScrollingTopView(leoTableViewController)
+        if self.habilitaDespliegeRepliege! && !leoViewController.getScrollView().dragging && !leoViewController.getScrollView().tracking {
+            self.mannageEndDragginScrollingTopView(leoViewController)
         }
     }
     
     func scrollViewDidScroll(notif: NSNotification) {
         if _isEndDragginAnimation { return }
-        guard let leoTableViewController = notif.object as? LEOTableViewController
+        guard let leoViewController = notif.object as? LEOScrollViewProtocol
             else { return }
         
         if self.habilitaDespliegeRepliege! {
-            mannageHeight(leoTableViewController)
+            mannageHeight(leoViewController)
         }
         
         self.putAlphaForSectionsOfTheBar()
     }
     
-    func mannageHeight(leoTableViewController : LEOTableViewController) {
+    func mannageHeight(leoViewController : LEOScrollViewProtocol) {
         guard let _ = self._LasetOffsetY else { return }
         guard let _ = self._startTouchOffsetY else { return }
 
-        let scrollView = leoTableViewController.tableView
+        let scrollView = leoViewController.getScrollView()
         
         let maxBar = self.getBackLayerMaxHeight() + 20
         let minBar = self.getBackLayerMinHeight() + 20
@@ -339,9 +346,9 @@ public class LEONavigationBar: UINavigationBar {
                     //inset = max(inset, minBar)
                     var edgeInsets = scrollView.contentInset
                     edgeInsets.top = inset
-                    leoTableViewController.scrollNotificationEnabled = false
+                    leoViewController.notificationEnabled(false)
                     scrollView.contentInset = edgeInsets
-                    leoTableViewController.scrollNotificationEnabled = true
+                    leoViewController.notificationEnabled(true)
 
                     var rect = self.frame
                     rect.size.height = inset - 20
@@ -352,10 +359,10 @@ public class LEONavigationBar: UINavigationBar {
         _LasetOffsetY = scrollView.contentOffset.y
     }
     
-    func mannageEndDragginScrollingTopView(leoTableViewController : LEOTableViewController) {
+    func mannageEndDragginScrollingTopView(leoViewController : LEOScrollViewProtocol) {
         self._isEndDragginAnimation = true
         
-        let scrollView = leoTableViewController.tableView
+        let scrollView = leoViewController.getScrollView()
         
         let medBar = self.getBackLayerMediumHeight() + 20
         let maxBar = self.getBackLayerMaxHeight() + 20
