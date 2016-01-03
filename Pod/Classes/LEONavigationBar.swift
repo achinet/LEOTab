@@ -24,7 +24,7 @@ public class LEONavigationBar: UINavigationBar {
     var topLayer : UIView!
     public var bottomLayer : UIView!
     var shadowLayer : UIView!
-    var leftButtonContainer : UIView!
+    public var leftButtonContainer : UIView!
     var rightButton : UIButton!
     var titleLabel : UILabel!
     
