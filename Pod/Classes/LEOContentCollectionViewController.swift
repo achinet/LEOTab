@@ -65,7 +65,7 @@ public class LEOContentCollectionViewController: UICollectionViewController {
 
 extension LEOContentCollectionViewController { //As UICollectionViewCell
     public func willDisplayCell(notif: NSNotification) {
-        guard let _ = notif.object as? LEOTableViewController
+        guard let _ = notif.object as? LEOContentCollectionViewController
             else { return }
         
         if let letLeoNavigationBar = self.leoNavigationBar {
