@@ -2,7 +2,7 @@ import UIKit
 
 public class LEOContentCollectionViewController: UICollectionViewController {
     let nc = NSNotificationCenter.defaultCenter()
-    var leoNavigationBar : LEONavigationBar?
+    public var leoNavigationBar : LEONavigationBar?
     var scrollNotificationEnabled = true
     
     //MARK: Init
