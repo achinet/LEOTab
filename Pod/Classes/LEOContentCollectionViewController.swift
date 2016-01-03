@@ -33,6 +33,10 @@ public class LEOContentCollectionViewController: UICollectionViewController {
 }
 
 extension LEOContentCollectionViewController : LEOScrollViewProtocol {
+    public func getLeoNavigationBar() -> UINavigationBar {
+        return self.leoNavigationBar!
+    }
+    
     public func notificationEnabled(enabled: Bool) {
         self.scrollNotificationEnabled = enabled
     }

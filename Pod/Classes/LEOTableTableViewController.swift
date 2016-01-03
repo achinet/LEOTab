@@ -30,6 +30,10 @@ public class LEOTableViewController: UITableViewController {
 }
 
 extension LEOTableViewController : LEOScrollViewProtocol {
+    public func getLeoNavigationBar() -> UINavigationBar {
+        return self.leoNavigationBar!
+    }
+    
     public func notificationEnabled(enabled: Bool) {
         self.scrollNotificationEnabled = enabled
     }

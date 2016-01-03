@@ -5,6 +5,7 @@ public protocol LEOScrollViewProtocol : UIScrollViewDelegate {
     func reloadData()
     func willDisplayCell(notif: NSNotification)
     func notificationEnabled(enabled: Bool)
+    func getLeoNavigationBar() -> UINavigationBar
 }
 
 public class LEONavigationBar: UINavigationBar {
