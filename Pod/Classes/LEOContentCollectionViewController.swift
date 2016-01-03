@@ -33,8 +33,12 @@ public class LEOContentCollectionViewController: UICollectionViewController {
 }
 
 extension LEOContentCollectionViewController : LEOScrollViewProtocol {
-    public func getLeoNavigationBar() -> UINavigationBar {
+    public func get_LeoNavigationBar() -> UINavigationBar {
         return self.leoNavigationBar!
+    }
+    
+    public func set_LeoNavigationBar(lEONavigationBar : LEONavigationBar) {
+        self.leoNavigationBar = lEONavigationBar
     }
     
     public func notificationEnabled(enabled: Bool) {
