@@ -24,7 +24,7 @@ public class LEONavigationBar: UINavigationBar {
     var topLayer : UIView!
     public var bottomLayer : UIView!
     var shadowLayer : UIView!
-    var leftButton : UIButton!
+    var leftButtonContainer : UIView!
     var rightButton : UIButton!
     var titleLabel : UILabel!
     
@@ -94,11 +94,14 @@ public class LEONavigationBar: UINavigationBar {
         shadowLayer = UIView(frame: CGRectMake(0, bottomLayer.frame.origin.y + bottomLayer.frame.size.height, self.frame.size.width, shadowHeight))
         shadowLayer!.backgroundColor = UIColor.lightGrayColor()
     
+        /*
         leftButton = UIButton(type: UIButtonType.Custom)
         leftButton.frame = CGRectMake(buttomMargin, buttomMargin, buttonDim, buttonDim)
         leftButton.imageView?.contentMode = UIViewContentMode.Center
         leftButton.setImage(UIImage(named:"nav_bar_back"), forState: .Normal)
         leftButton.addTarget(self, action: "leftPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        */
+        leftButtonContainer = UIView(frame: CGRectMake(buttomMargin, buttomMargin, buttonDim, buttonDim))
         
         rightButton = UIButton(type: UIButtonType.Custom)
         rightButton.frame = CGRectMake(self.frame.size.width - buttonDim - buttomMargin, buttomMargin, buttonDim, buttonDim)
@@ -106,7 +109,7 @@ public class LEONavigationBar: UINavigationBar {
         rightButton.addTarget(self, action: "rightPressed:", forControlEvents: UIControlEvents.TouchUpInside)
         rightButton.hidden = true
         
-        titleLabel = UILabel(frame: CGRectMake(leftButton.frame.origin.x + buttonDim + buttomMargin,
+        titleLabel = UILabel(frame: CGRectMake(leftButtonContainer.frame.origin.x + buttonDim + buttomMargin,
             buttomMargin,
             self.frame.size.width - 2 * buttomMargin - 2 * buttonDim - 2 * titleSeparationWithButtons,
             self.frame.size.height - 2 * buttomMargin))
@@ -178,18 +181,18 @@ public class LEONavigationBar: UINavigationBar {
     }
     
     func topLayerAddSubviewsAndConstraints() {
-        leftButton.translatesAutoresizingMaskIntoConstraints = false
+        leftButtonContainer.translatesAutoresizingMaskIntoConstraints = false
         rightButton.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        topLayer.addSubview(leftButton!)
+        topLayer.addSubview(leftButtonContainer!)
         topLayer.addSubview(rightButton!)
         topLayer.addSubview(titleLabel!)
         
-        let viewsDictionary = ["leftButton": leftButton, "rightButton": rightButton, "titleLabel": titleLabel]
+        let viewsDictionary = ["leftButtonContainer": leftButtonContainer, "rightButton": rightButton, "titleLabel": titleLabel]
         let metricsDictionary = ["buttomMargin": buttomMargin, "buttonDim": buttonDim, "titleSeparationWithButtons": titleSeparationWithButtons]
         
-        let constraint_H_Layer = NSLayoutConstraint.constraintsWithVisualFormat("H:|-(buttomMargin)-[leftButton(buttonDim)]-(titleSeparationWithButtons)-[titleLabel]-(titleSeparationWithButtons)-[rightButton(buttonDim)]-(buttomMargin)-|",
+        let constraint_H_Layer = NSLayoutConstraint.constraintsWithVisualFormat("H:|-(buttomMargin)-[leftButtonContainer(buttonDim)]-(titleSeparationWithButtons)-[titleLabel]-(titleSeparationWithButtons)-[rightButton(buttonDim)]-(buttomMargin)-|",
             options: NSLayoutFormatOptions(rawValue: 0),
             metrics: metricsDictionary,
             views: viewsDictionary)
@@ -198,16 +201,16 @@ public class LEONavigationBar: UINavigationBar {
             item: topLayer,
             attribute: NSLayoutAttribute.CenterY,
             relatedBy: NSLayoutRelation.Equal,
-            toItem: leftButton,
+            toItem: leftButtonContainer,
             attribute: NSLayoutAttribute.CenterY,
             multiplier: 1,
             constant: 0)
         
         let constraintLeftButtonAspectRatio = NSLayoutConstraint(
-            item: leftButton,
+            item: leftButtonContainer,
             attribute: NSLayoutAttribute.Width,
             relatedBy: NSLayoutRelation.Equal,
-            toItem: leftButton,
+            toItem: leftButtonContainer,
             attribute: NSLayoutAttribute.Height,
             multiplier: 1,
             constant: 0)
