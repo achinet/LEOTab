@@ -27,6 +27,7 @@ public class LEOViewController: UIViewController {
     func SetupViewController() {
         self.navigationItem.title = nil
         nc.addObserver(self, selector: "willDisplayCell:", name: "LEO_willDisplayCell", object: nil)
+        nc.addObserver(self, selector: "WillDisappearCell:", name: "LEO_WillDisappearCell", object: nil)
     }
 }
 
@@ -36,5 +37,12 @@ extension LEOViewController { //As UICollectionViewCell
             else { return }
         
         //Do nothing
+    }
+    
+    public func WillDisappearCell(notif: NSNotification) {
+        guard let _ = notif.object as? LEOViewController
+            else { return }
+        
+        //To override
     }
 }
