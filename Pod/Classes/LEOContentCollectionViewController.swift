@@ -22,6 +22,7 @@ public class LEOContentCollectionViewController: UICollectionViewController {
     func SetupViewController() {
         self.navigationItem.title = nil
         nc.addObserver(self, selector: "willDisplayCell:", name: "LEO_willDisplayCell", object: nil)
+        nc.addObserver(self, selector: "WillDisappearCell:", name: "LEO_WillDisappearCell", object: nil)
     }
     
     public func reloadData() {
