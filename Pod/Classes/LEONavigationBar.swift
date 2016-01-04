@@ -26,7 +26,7 @@ public class LEONavigationBar: UINavigationBar {
     var shadowLayer : UIView!
     public var leftButtonContainer : UIView!
     var rightButton : UIButton!
-    var titleLabel : UILabel!
+    public var titleLabel : UILabel!
     
     var _startTouchOffsetY : CGFloat?
     var _startTouchInsetTop : CGFloat?
