@@ -59,7 +59,7 @@ extension LEOContentCollectionViewController : LEOScrollViewProtocol {
             contentInset.top = letLeoNavigationBar.frame.size.height + 20
             self.collectionView!.contentInset = contentInset
             
-            if (self.collectionView!.contentSize.height < self.collectionView!.frame.size.height) { return }
+            if (self.collectionView!.contentSize.height < self.collectionView!.frame.size.height - (leoNavigationBar?.getBackLayerMaxHeight())! - self.collectionView!.contentInset.bottom) { return }
             
             if !(beforeContentInset > (letLeoNavigationBar.getBackLayerMinHeight() + 20) && -self.collectionView!.contentOffset.y >= (letLeoNavigationBar.getBackLayerMinHeight() + 20)) {
                 let afterOffsetTop = beforeContentInset - contentInset.top

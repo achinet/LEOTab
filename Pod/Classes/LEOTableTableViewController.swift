@@ -56,7 +56,7 @@ extension LEOTableViewController : LEOScrollViewProtocol {
             contentInset.top = letLeoNavigationBar.frame.size.height + 20
             self.tableView.contentInset = contentInset
             
-            if (self.tableView.contentSize.height < self.tableView.frame.size.height) { return }
+            if (self.tableView.contentSize.height < self.tableView.frame.size.height - (leoNavigationBar?.getBackLayerMaxHeight())! - self.tableView.contentInset.bottom) { return }
             
             if !(beforeContentInset > (letLeoNavigationBar.getBackLayerMinHeight() + 20) && -self.tableView.contentOffset.y >= (letLeoNavigationBar.getBackLayerMinHeight() + 20)) {
                 let afterOffsetTop = beforeContentInset - contentInset.top
