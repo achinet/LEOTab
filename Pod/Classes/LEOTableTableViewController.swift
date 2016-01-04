@@ -67,6 +67,13 @@ extension LEOTableViewController : LEOScrollViewProtocol {
         }
     }
     
+    public func WillDisappearCell(notif: NSNotification) {
+        guard let _ = notif.object as? LEOTableViewController
+            else { return }
+        
+        //To override
+    }
+    
     public func reloadData() {
         let tmpScrollDelegateEnabled = self.scrollNotificationEnabled
         self.scrollNotificationEnabled = false

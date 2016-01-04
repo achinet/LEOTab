@@ -70,7 +70,7 @@ extension LEOCollectionViewController : UICollectionViewDataSource {
         }
         return 0
     }
-  public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MyCell", forIndexPath: indexPath)
         let vc = controllers![indexPath.row]
         cell.contentView.addSubview((vc.view)!)
@@ -78,7 +78,13 @@ extension LEOCollectionViewController : UICollectionViewDataSource {
         
         return cell;
     }
-  public func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+    
+    public func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        if let currentIndexPathRow = getCurrentIndexPath()?.row, viewController = controllers?[currentIndexPathRow] {
+            let nc = NSNotificationCenter.defaultCenter()
+            nc.postNotificationName("LEO_WillDisappearCell", object: viewController)
+        }
+        
         if let viewController = controllers?[indexPath.row] {
             let nc = NSNotificationCenter.defaultCenter()
             nc.postNotificationName("LEO_willDisplayCell", object: viewController)

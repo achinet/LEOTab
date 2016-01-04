@@ -70,6 +70,13 @@ extension LEOContentCollectionViewController : LEOScrollViewProtocol {
         }
     }
     
+    public func WillDisappearCell(notif: NSNotification) {
+        guard let _ = notif.object as? LEOContentCollectionViewController
+            else { return }
+        
+        //To override
+    }
+    
     //MARK: ScrollViewDelegate
     override public func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         if scrollNotificationEnabled {
