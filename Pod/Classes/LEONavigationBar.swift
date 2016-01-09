@@ -13,6 +13,8 @@ public protocol LEOScrollViewProtocol : UIScrollViewDelegate {
 public class LEONavigationBar: UINavigationBar {
     let nc = NSNotificationCenter.defaultCenter()
     
+    let animationDuration : NSTimeInterval = 0.25
+    
     let topLayerHeight : CGFloat = 44.0
     let bottomLayerHeight : CGFloat = 46.0
     let shadowHeight : CGFloat = 1
@@ -22,6 +24,7 @@ public class LEONavigationBar: UINavigationBar {
     var bottomLayerAlphaMin : CGFloat = 0.3
     
     var statusBarLayer : UIView!
+    var statusBarHeight : CGFloat = 20
     var topLayer : UIView!
     public var bottomLayer : UIView!
     var shadowLayer : UIView!
@@ -69,7 +72,8 @@ public class LEONavigationBar: UINavigationBar {
         self.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         self.backgroundColor = UIColor.whiteColor()
         habilitaDespliegeRepliege = true
-        
+        statusBarHeight = UIApplication.sharedApplication().statusBarFrame.height
+            
         registerObserver()
         buildLayouts()
     }
@@ -83,7 +87,7 @@ public class LEONavigationBar: UINavigationBar {
     }
     
     func buildLayouts() {
-        statusBarLayer = UIView(frame: CGRectMake(0, -20, self.frame.width, 20))
+        statusBarLayer = UIView(frame: CGRectMake(0, -statusBarHeight, self.frame.width, statusBarHeight))
         statusBarLayer!.backgroundColor = UIColor.whiteColor()
         
         topLayer = UIView(frame: CGRectMake(0, 0, self.frame.width, topLayerHeight))
@@ -95,13 +99,6 @@ public class LEONavigationBar: UINavigationBar {
         shadowLayer = UIView(frame: CGRectMake(0, bottomLayer.frame.origin.y + bottomLayer.frame.size.height, self.frame.size.width, shadowHeight))
         shadowLayer!.backgroundColor = UIColor.lightGrayColor()
     
-        /*
-        leftButton = UIButton(type: UIButtonType.Custom)
-        leftButton.frame = CGRectMake(buttomMargin, buttomMargin, buttonDim, buttonDim)
-        leftButton.imageView?.contentMode = UIViewContentMode.Center
-        leftButton.setImage(UIImage(named:"nav_bar_back"), forState: .Normal)
-        leftButton.addTarget(self, action: "leftPressed:", forControlEvents: UIControlEvents.TouchUpInside)
-        */
         leftButtonContainer = UIView(frame: CGRectMake(buttomMargin, buttomMargin, buttonDim, buttonDim))
         
         rightButton = UIButton(type: UIButtonType.Custom)
@@ -133,7 +130,7 @@ public class LEONavigationBar: UINavigationBar {
         self.addSubview(shadowLayer!)
         
         let viewsDictionary = ["topLayer": topLayer, "bottomLayer": bottomLayer, "statusBarLayer": statusBarLayer, "shadowLayer": shadowLayer]
-        let metricsDictionary = ["topLayerWidth": topLayerHeight, "bottomLayerHeight": bottomLayerHeight, "statusBarLayerHeight": 20, "satusBarLayerYPosition": -20, "shadowHeight": shadowHeight]
+        let metricsDictionary = ["topLayerWidth": topLayerHeight, "bottomLayerHeight": bottomLayerHeight, "statusBarLayerHeight": statusBarHeight, "satusBarLayerYPosition": -statusBarHeight, "shadowHeight": shadowHeight]
         
         let constraint_H_TopLayer = NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[topLayer]-0-|",
             options: NSLayoutFormatOptions(rawValue: 0),
@@ -313,35 +310,26 @@ public class LEONavigationBar: UINavigationBar {
 
         let scrollView = leoViewController.getScrollView()
         
-        let maxBar = self.getBackLayerMaxHeight() + 20
-        let minBar = self.getBackLayerMinHeight() + 20
+        let maxBar = self.getBackLayerMaxHeight() + statusBarHeight
+        let minBar = self.getBackLayerMinHeight() + statusBarHeight
 
         if (-scrollView.contentOffset.y < maxBar ||
-            (self.frame.size.height + 20) < maxBar) && (self._isDraggin ||
-            self._isDecelerating) {
+            (self.frame.size.height + statusBarHeight) < maxBar) && (self._isDraggin ||
+                self._isDecelerating) {
             let gap = _startTouchOffsetY! - scrollView.contentOffset.y
-            
-            //Se entra en el if si: ya se ha entrado en este dragging, se mueve hacia arriba, o se mueve hacia bajao y se llega al gap que es el mínimo entre el propio alto de la barra abierta y el contentOfsety
-            // gap <= 0 : Si e mueve hacia arriba
-            // gap >= min(self.getBackLayerMaxHeight(), scrollView.contentOffset.y + self.getBackLayerMaxHeight()) : se alcanza el gap
-            // gapAttached
+
             if (gap <= 0 ||
                 gap >= min(maxBar, scrollView.contentOffset.y + maxBar) ||
                 scrollView.contentSize.height < scrollView.frame.size.height ||
-                scrollView.contentInset.top == minBar ||
+                scrollView.contentInset.top == minBar && -scrollView.contentOffset.y >= scrollView.contentInset.top ||
                 gapAttached!) &&
             !((-scrollView.contentOffset.y < minBar) && gap < 0 && self._isDraggin && (scrollView.contentSize.height < scrollView.frame.size.height )) {
                     
                 gapAttached = true
-                
-                //Solo considero los offset positivos con respecto al origen marcado por el inset
-                //let ofsetPositivoRespectoAlIndex = max((scrollView.contentOffset.y + scrollView.contentInset.top), 0.0)
+
                 let delta = _LasetOffsetY! - scrollView.contentOffset.y
                 let candidatoANuevoHeight = scrollView.contentInset.top + delta
                 
-                //El siguiente if lo pongo para que no apareza cuando rebota con el fondo de la tabla
-                //Ojo con el or, es para cuando el contenido de la tabla tiene un tamaño mayor que el screen - navigationBarMaxHeight pero menor
-                //que scree - navigationBarMinHeight
                 let contentHeight = scrollView.contentSize.height + scrollView.contentInset.bottom
                 
                 if ((contentHeight - scrollView.contentOffset.y) > scrollView.frame.size.height) ||
@@ -356,8 +344,12 @@ public class LEONavigationBar: UINavigationBar {
                     scrollView.contentInset = edgeInsets
                     leoViewController.notificationEnabled(true)
 
+                    var scrollIndicatorInsets = scrollView.scrollIndicatorInsets
+                    scrollIndicatorInsets.top = inset
+                    scrollView.scrollIndicatorInsets = scrollIndicatorInsets
+                        
                     var rect = self.frame
-                    rect.size.height = inset - 20
+                    rect.size.height = inset - statusBarHeight
                     self.frame = rect
                 }
             }
@@ -370,9 +362,9 @@ public class LEONavigationBar: UINavigationBar {
         
         let scrollView = leoViewController.getScrollView()
         
-        let medBar = self.getBackLayerMediumHeight() + 20
-        let maxBar = self.getBackLayerMaxHeight() + 20
-        let minBar = self.getBackLayerMinHeight() + 20
+        let medBar = self.getBackLayerMediumHeight() + statusBarHeight
+        let maxBar = self.getBackLayerMaxHeight() + statusBarHeight
+        let minBar = self.getBackLayerMinHeight() + statusBarHeight
 
         let delta = (scrollView.contentInset.top < medBar) ? minBar - scrollView.contentInset.top : maxBar - scrollView.contentInset.top
         var inset = scrollView.contentInset
@@ -382,22 +374,24 @@ public class LEONavigationBar: UINavigationBar {
         offset.y = offset.y - delta
 
         var rect : CGRect = self.frame
-        rect.size.height = inset.top - 20
+        rect.size.height = inset.top - statusBarHeight
 
-        UIView.animateWithDuration(0.25, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+        UIView.animateWithDuration(animationDuration, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
             scrollView.contentInset = inset
             scrollView.contentOffset = offset
+            
             self.frame = rect
             self.putAlphaForSectionsOfTheBar()
-            self.layoutIfNeeded() //si no pongo esto no funciona o funciona mal https://github.com/PureLayout/PureLayout/issues/82
+            self.layoutIfNeeded() // https://github.com/PureLayout/PureLayout/issues/82
         }) { (Bool) -> Void in
+            var scrollIndicatorInsets = scrollView.scrollIndicatorInsets
+            scrollIndicatorInsets.top = inset.top
+            scrollView.scrollIndicatorInsets = scrollIndicatorInsets
             self._isEndDragginAnimation = false
         }
     }
 
     func putAlphaForSectionsOfTheBar() {
-        //Barra de botones
-        //Lo hice con la ecuación de la recta que pasa por dos puntos (P = (alto, alpha)). Lo hice de tal menar que cuando el alto de la tabla barra está mitad => el alpha es cero
         bottomLayer.alpha = ((self.frame.size.height - self.getBackLayerMediumHeight())/(self.getBackLayerMaxHeight() - self.getBackLayerMediumHeight())) * (1 - bottomLayerAlphaMin) + bottomLayerAlphaMin
     }
     

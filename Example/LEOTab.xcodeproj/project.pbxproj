@@ -10,11 +10,20 @@
 		40F94527B4AA84B5E29E1F53 /* Pods_LEOTab_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CA8A50A81BF6E2C6C2D0AC8 /* Pods_LEOTab_Tests.framework */; };
 		5FF1BE624DC88AD80ECE2203 /* Pods_LEOTab_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10873AA701CF858328E84765 /* Pods_LEOTab_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		983DB0851C40422700129C23 /* ExampleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983DB0841C40422700129C23 /* ExampleCollectionViewController.swift */; };
+		983DB0871C40427C00129C23 /* ExampleNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983DB0861C40427C00129C23 /* ExampleNavigationController.swift */; };
+		983DB0891C40437300129C23 /* ShortTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983DB0881C40437300129C23 /* ShortTableViewController.swift */; };
+		983DB08B1C40558200129C23 /* LargeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983DB08A1C40558200129C23 /* LargeTableViewController.swift */; };
+		983DB08D1C4119D400129C23 /* SingleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983DB08C1C4119D400129C23 /* SingleTableViewController.swift */; };
+		983DB0911C41A30700129C23 /* LEOMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983DB0901C41A30700129C23 /* LEOMenu.swift */; };
+		983DB0941C41A31900129C23 /* LEOMenuButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 983DB0921C41A31900129C23 /* LEOMenuButton.xib */; };
+		983DB0951C41A31900129C23 /* LEOMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983DB0931C41A31900129C23 /* LEOMenuButton.swift */; };
+		983DB0991C41A38A00129C23 /* BaseDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983DB0981C41A38A00129C23 /* BaseDesignable.swift */; };
+		983DB09C1C41A69A00129C23 /* ExampleCollectionViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983DB09B1C41A69A00129C23 /* ExampleCollectionViewController2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,13 +44,22 @@
 		607FACD01AFB9204008FA782 /* LEOTab_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LEOTab_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* LEOTab_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LEOTab_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		983DB0841C40422700129C23 /* ExampleCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleCollectionViewController.swift; sourceTree = "<group>"; };
+		983DB0861C40427C00129C23 /* ExampleNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleNavigationController.swift; sourceTree = "<group>"; };
+		983DB0881C40437300129C23 /* ShortTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortTableViewController.swift; sourceTree = "<group>"; };
+		983DB08A1C40558200129C23 /* LargeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeTableViewController.swift; sourceTree = "<group>"; };
+		983DB08C1C4119D400129C23 /* SingleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleTableViewController.swift; sourceTree = "<group>"; };
+		983DB0901C41A30700129C23 /* LEOMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOMenu.swift; sourceTree = "<group>"; };
+		983DB0921C41A31900129C23 /* LEOMenuButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LEOMenuButton.xib; sourceTree = "<group>"; };
+		983DB0931C41A31900129C23 /* LEOMenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOMenuButton.swift; sourceTree = "<group>"; };
+		983DB0981C41A38A00129C23 /* BaseDesignable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDesignable.swift; sourceTree = "<group>"; };
+		983DB09B1C41A69A00129C23 /* ExampleCollectionViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleCollectionViewController2.swift; sourceTree = "<group>"; };
 		AA9C3BE3E94F35C394A26F92 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B04A3ADEEB705B248A2FEB97 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		C75875C16D8A3E91B09D4759 /* Pods-LEOTab_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LEOTab_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-LEOTab_Example/Pods-LEOTab_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -94,8 +112,11 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				983DB0861C40427C00129C23 /* ExampleNavigationController.swift */,
+				983DB08C1C4119D400129C23 /* SingleTableViewController.swift */,
+				983DB08E1C419C5400129C23 /* Example 1 */,
+				983DB08F1C419CF300129C23 /* Example 2 */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
@@ -137,6 +158,52 @@
 				B04A3ADEEB705B248A2FEB97 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		983DB08E1C419C5400129C23 /* Example 1 */ = {
+			isa = PBXGroup;
+			children = (
+				983DB0841C40422700129C23 /* ExampleCollectionViewController.swift */,
+				983DB0881C40437300129C23 /* ShortTableViewController.swift */,
+				983DB08A1C40558200129C23 /* LargeTableViewController.swift */,
+			);
+			name = "Example 1";
+			sourceTree = "<group>";
+		};
+		983DB08F1C419CF300129C23 /* Example 2 */ = {
+			isa = PBXGroup;
+			children = (
+				983DB0961C41A32100129C23 /* LEOMenu */,
+				983DB09B1C41A69A00129C23 /* ExampleCollectionViewController2.swift */,
+			);
+			name = "Example 2";
+			sourceTree = "<group>";
+		};
+		983DB0961C41A32100129C23 /* LEOMenu */ = {
+			isa = PBXGroup;
+			children = (
+				983DB09A1C41A39100129C23 /* BaseDesignable */,
+				983DB0931C41A31900129C23 /* LEOMenuButton.swift */,
+				983DB0971C41A33400129C23 /* LEOMenuButton */,
+			);
+			name = LEOMenu;
+			sourceTree = "<group>";
+		};
+		983DB0971C41A33400129C23 /* LEOMenuButton */ = {
+			isa = PBXGroup;
+			children = (
+				983DB0901C41A30700129C23 /* LEOMenu.swift */,
+				983DB0921C41A31900129C23 /* LEOMenuButton.xib */,
+			);
+			name = LEOMenuButton;
+			sourceTree = "<group>";
+		};
+		983DB09A1C41A39100129C23 /* BaseDesignable */ = {
+			isa = PBXGroup;
+			children = (
+				983DB0981C41A38A00129C23 /* BaseDesignable.swift */,
+			);
+			name = BaseDesignable;
 			sourceTree = "<group>";
 		};
 		CFF4904A6F6290C3A7B086CC /* Pods */ = {
@@ -249,6 +316,7 @@
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				983DB0941C41A31900129C23 /* LEOMenuButton.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,8 +427,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				983DB0891C40437300129C23 /* ShortTableViewController.swift in Sources */,
+				983DB08D1C4119D400129C23 /* SingleTableViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				983DB0991C41A38A00129C23 /* BaseDesignable.swift in Sources */,
+				983DB09C1C41A69A00129C23 /* ExampleCollectionViewController2.swift in Sources */,
+				983DB0871C40427C00129C23 /* ExampleNavigationController.swift in Sources */,
+				983DB0851C40422700129C23 /* ExampleCollectionViewController.swift in Sources */,
+				983DB0911C41A30700129C23 /* LEOMenu.swift in Sources */,
+				983DB08B1C40558200129C23 /* LargeTableViewController.swift in Sources */,
+				983DB0951C41A31900129C23 /* LEOMenuButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

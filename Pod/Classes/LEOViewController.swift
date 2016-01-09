@@ -1,11 +1,3 @@
-//
-//  LEOViewController.swift
-//  Pods
-//
-//  Created by Leonardo Ruiz on 31/12/15.
-//
-//
-
 import UIKit
 
 public class LEOViewController: UIViewController {
@@ -31,7 +23,7 @@ public class LEOViewController: UIViewController {
     }
 }
 
-extension LEOViewController { //As UICollectionViewCell
+extension LEOViewController {
     public func willDisplayCell(notif: NSNotification) {
         guard let _ = notif.object as? LEOViewController
             else { return }

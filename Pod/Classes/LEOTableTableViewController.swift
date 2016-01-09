@@ -90,7 +90,7 @@ extension LEOTableViewController : LEOScrollViewProtocol {
     }
     
     override public func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if scrollNotificationEnabled {
+        if scrollNotificationEnabled && decelerate == false {
             nc.postNotificationName("LEO_scrollViewDidEndDragging", object: self)
         }
     }

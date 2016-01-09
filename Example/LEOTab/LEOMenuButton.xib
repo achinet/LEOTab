@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LEOMenuButton" customModule="LEOTab_Example" customModuleProvider="target">
+            <connections>
+                <outlet property="badgeLabel" destination="u2k-hu-AZd" id="ca5-S2-blY"/>
+                <outlet property="heightConstraint" destination="I69-za-LeK" id="HuB-Nk-Q81"/>
+                <outlet property="stateImageView" destination="p4A-Xm-vo6" id="ld2-dC-jet"/>
+                <outlet property="widthConstraint" destination="jrZ-3N-4a1" id="XEg-0y-6dR"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="aO1-rE-FuO">
+            <rect key="frame" x="0.0" y="0.0" width="41" height="41"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wizard_map" translatesAutoresizingMaskIntoConstraints="NO" id="p4A-Xm-vo6">
+                    <rect key="frame" x="3" y="3" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="I69-za-LeK"/>
+                        <constraint firstAttribute="width" secondItem="p4A-Xm-vo6" secondAttribute="height" multiplier="1:1" id="YM1-IK-XWj"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2k-hu-AZd">
+                    <rect key="frame" x="20" y="3" width="33" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="33" id="jrZ-3N-4a1"/>
+                        <constraint firstAttribute="height" constant="16" id="orY-7H-QkG"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLv-nu-DJk">
+                    <rect key="frame" x="0.0" y="0.0" width="41" height="41"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="click:" destination="-1" eventType="touchUpInside" id="46O-JD-ULb"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="MLv-nu-DJk" firstAttribute="top" secondItem="aO1-rE-FuO" secondAttribute="top" id="2kL-cY-vow"/>
+                <constraint firstAttribute="bottom" secondItem="MLv-nu-DJk" secondAttribute="bottom" id="JTf-hk-a4I"/>
+                <constraint firstAttribute="trailing" secondItem="MLv-nu-DJk" secondAttribute="trailing" id="WSh-XE-gcN"/>
+                <constraint firstItem="p4A-Xm-vo6" firstAttribute="centerX" secondItem="aO1-rE-FuO" secondAttribute="centerX" id="eLd-gd-1MK"/>
+                <constraint firstItem="u2k-hu-AZd" firstAttribute="centerX" secondItem="p4A-Xm-vo6" secondAttribute="trailing" constant="-2" id="lbj-hO-0MX"/>
+                <constraint firstItem="p4A-Xm-vo6" firstAttribute="centerY" secondItem="aO1-rE-FuO" secondAttribute="centerY" id="o89-Id-l1b"/>
+                <constraint firstItem="MLv-nu-DJk" firstAttribute="leading" secondItem="aO1-rE-FuO" secondAttribute="leading" id="po5-GC-l1C"/>
+                <constraint firstItem="u2k-hu-AZd" firstAttribute="centerY" secondItem="p4A-Xm-vo6" secondAttribute="top" constant="8" id="wtt-Xa-UCl"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="572.5" y="348.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="wizard_map" width="35" height="35"/>
+    </resources>
+</document>

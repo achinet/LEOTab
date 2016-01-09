@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  LEOTab
-//
-//  Created by Leonardo Ruiz on 12/29/2015.
-//  Copyright (c) 2015 Leonardo Ruiz. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
