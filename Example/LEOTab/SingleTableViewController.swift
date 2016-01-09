@@ -31,7 +31,7 @@ class SingleTableViewController: LEOTableViewController {
     
     // MARK: - Table view data source
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 2
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -44,7 +44,7 @@ class SingleTableViewController: LEOTableViewController {
         case 0:
             cell!.textLabel?.text = "CollectionView with TableViews and CollectionViews"
         default:
-            cell!.textLabel?.text = "CollectionView. Menu usage"
+            cell!.textLabel?.text = "CollectionView with Menu navigatin system"
         }
         return cell!
     }
